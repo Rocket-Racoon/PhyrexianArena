@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'admin_black.apps.AdminBlackConfig',
     'django.contrib.admin',
@@ -43,6 +42,7 @@ INSTALLED_APPS = [
     # Third Parties
     'rest_framework',
     # Local Apps
+    'apps.multiverse',
 ]
 
 MIDDLEWARE = [
