@@ -297,6 +297,7 @@ button,
 [type="reset"],
 [type="submit"] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 button:not(:disabled),
@@ -325,6 +326,7 @@ input[type="time"],
 input[type="datetime-local"],
 input[type="month"] {
   -webkit-appearance: listbox;
+  appearance: listbox;
 }
 
 textarea {
@@ -363,6 +365,7 @@ progress {
 [type="search"] {
   outline-offset: -2px;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 [type="search"]::-webkit-search-decoration {
@@ -12811,10 +12814,10 @@ a.text-darker:focus {
 .navbar .navbar-nav>a.btn.active:focus,
 .navbar .navbar-nav>a.btn.active:hover {
   background-color: #263148 !important;
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -12829,8 +12832,8 @@ a.text-darker:focus {
 .btn:not([data-action]):hover,
 .navbar .navbar-nav>a.btn:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn.disabled,
@@ -12922,10 +12925,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .navbar .navbar-nav>a.btn.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #344675;
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
   background-color: #263148 !important;
   box-shadow: none;
 }
@@ -13112,10 +13115,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .btn-primary.active:focus,
 .btn-primary.active:hover {
   background-color: #ba54f5 !important;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
   background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
   background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -13128,8 +13131,8 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 
 .btn-primary:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-primary.disabled,
@@ -13187,10 +13190,10 @@ fieldset[disabled] .btn-primary.active {
 .btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #e14eca;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
   background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
   background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
   background-color: #ba54f5 !important;
   box-shadow: none;
 }
@@ -13237,10 +13240,10 @@ fieldset[disabled] .btn-primary.active {
 .btn-success.active:focus,
 .btn-success.active:hover {
   background-color: #0098f0 !important;
-  background-image: linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
+  background-image: -moz-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
   background-image: -webkit-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
   background-image: -o-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
-  background-image: -moz-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
+  background-image: linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -13253,8 +13256,8 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-success:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-success.disabled,
@@ -13312,10 +13315,10 @@ fieldset[disabled] .btn-success.active {
 .btn-success.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #00f2c3;
-  background-image: linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
+  background-image: -moz-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
   background-image: -webkit-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
   background-image: -o-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
-  background-image: -moz-linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
+  background-image: linear-gradient(to bottom left, #00f2c3, #0098f0, #00f2c3) !important;
   background-color: #0098f0 !important;
   box-shadow: none;
 }
@@ -13362,10 +13365,10 @@ fieldset[disabled] .btn-success.active {
 .btn-info.active:focus,
 .btn-info.active:hover {
   background-color: #3358f4 !important;
-  background-image: linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
+  background-image: -moz-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
   background-image: -webkit-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
   background-image: -o-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
-  background-image: -moz-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
+  background-image: linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -13378,8 +13381,8 @@ fieldset[disabled] .btn-success.active {
 
 .btn-info:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-info.disabled,
@@ -13437,10 +13440,10 @@ fieldset[disabled] .btn-info.active {
 .btn-info.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #1d8cf8;
-  background-image: linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
+  background-image: -moz-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
   background-image: -webkit-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
   background-image: -o-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
-  background-image: -moz-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
+  background-image: linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
   background-color: #3358f4 !important;
   box-shadow: none;
 }
@@ -13487,10 +13490,10 @@ fieldset[disabled] .btn-info.active {
 .btn-warning.active:focus,
 .btn-warning.active:hover {
   background-color: #ff6491 !important;
-  background-image: linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
+  background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
   background-image: -webkit-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
   background-image: -o-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
-  background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
+  background-image: linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -13503,8 +13506,8 @@ fieldset[disabled] .btn-info.active {
 
 .btn-warning:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-warning.disabled,
@@ -13562,10 +13565,10 @@ fieldset[disabled] .btn-warning.active {
 .btn-warning.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #ff8d72;
-  background-image: linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
+  background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
   background-image: -webkit-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
   background-image: -o-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
-  background-image: -moz-linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
+  background-image: linear-gradient(to bottom left, #ff8d72, #ff6491, #ff8d72) !important;
   background-color: #ff6491 !important;
   box-shadow: none;
 }
@@ -13616,10 +13619,10 @@ fieldset[disabled] .btn-warning.active {
 .btn-danger.active:focus,
 .btn-danger.active:hover {
   background-color: #ec250d !important;
-  background-image: linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-image: -webkit-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-image: -o-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-image: -moz-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
+  background-image: linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -13632,8 +13635,8 @@ fieldset[disabled] .btn-warning.active {
 
 .btn-danger:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-danger.disabled,
@@ -13691,10 +13694,10 @@ fieldset[disabled] .btn-danger.active {
 .btn-danger.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #fd5d93;
-  background-image: linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-image: -webkit-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-image: -o-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-image: -moz-linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
+  background-image: linear-gradient(to bottom left, #fd5d93, #ec250d, #fd5d93) !important;
   background-color: #ec250d !important;
   box-shadow: none;
 }
@@ -13741,10 +13744,10 @@ fieldset[disabled] .btn-danger.active {
 .btn-neutral.active:focus,
 .btn-neutral.active:hover {
   background-color: #ffffff !important;
-  background-image: linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   background-image: -webkit-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   background-image: -o-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   background-image: -moz-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
+  background-image: linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   color: #ffffff;
   box-shadow: none;
 }
@@ -13757,8 +13760,8 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-neutral:not([data-action]):hover {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-neutral.disabled,
@@ -13895,10 +13898,10 @@ fieldset[disabled] .btn-neutral.active {
 .btn-neutral.btn-simple.active:not(:disabled):not(.disabled):active {
   color: #ffffff;
   border-color: #ffffff;
-  background-image: linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
+  background-image: -moz-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   background-image: -webkit-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   background-image: -o-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
-  background-image: -moz-linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
+  background-image: linear-gradient(to bottom left, #ffffff, #ffffff, #ffffff) !important;
   background-color: #ffffff !important;
   box-shadow: none;
 }
@@ -14037,8 +14040,8 @@ fieldset[disabled] .btn-link.active {
 
 .btn-group .btn.active {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-group.select .btn {
@@ -14054,8 +14057,8 @@ fieldset[disabled] .btn-link.active {
 
 .btn-group .btn.active {
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
-  transform: translateY(-1px);
   -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
 }
 
 .btn-round {
@@ -14078,8 +14081,8 @@ fieldset[disabled] .btn-link.active {
 }
 
 .btn-group label.btn.active {
-  transform: translateY(0);
   -webkit-transform: translateY(0);
+  transform: translateY(0);
 }
 
 .dropdown-menu {
@@ -17020,9 +17023,9 @@ table.tablesorter thead tr .headerSortDown {
 
 .fixed-plugin li>a,
 .fixed-plugin .badge {
-  transition: all .34s;
   -webkit-transition: all .34s;
   -moz-transition: all .34s;
+  transition: all .34s;
 }
 
 .fixed-plugin .fa-cog {
@@ -17299,9 +17302,9 @@ table.tablesorter thead tr .headerSortDown {
   position: absolute;
   top: 74px;
   width: 16px;
-  transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .fixed-plugin .dropdown.show .dropdown-menu {
@@ -19247,8 +19250,8 @@ textarea.form-control:active {
   overflow: hidden !important;
   overflow-anchor: none;
   -ms-overflow-style: none;
-  touch-action: auto;
   -ms-touch-action: auto;
+  touch-action: auto;
 }
 
 /*
@@ -19257,8 +19260,8 @@ textarea.form-control:active {
 .ps__rail-x {
   display: none;
   opacity: 0;
-  transition: background-color .2s linear, opacity .2s linear;
   -webkit-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
   height: 15px;
   /* there must be 'bottom' or 'top' for ps__rail-x */
   bottom: 0px;
@@ -19269,8 +19272,8 @@ textarea.form-control:active {
 .ps__rail-y {
   display: none;
   opacity: 0;
-  transition: background-color .2s linear, opacity .2s linear;
   -webkit-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
   width: 15px;
   /* there must be 'right' or 'left' for ps__rail-y */
   right: 0;
@@ -19309,8 +19312,8 @@ textarea.form-control:active {
 .ps__thumb-x {
   background-color: #aaa;
   border-radius: 6px;
-  transition: background-color .2s linear, height .2s ease-in-out;
   -webkit-transition: background-color .2s linear, height .2s ease-in-out;
+  transition: background-color .2s linear, height .2s ease-in-out;
   height: 6px;
   /* there must be 'bottom' for ps__thumb-x */
   bottom: 2px;
@@ -19321,8 +19324,8 @@ textarea.form-control:active {
 .ps__thumb-y {
   background-color: #aaa;
   border-radius: 6px;
-  transition: background-color .2s linear, width .2s ease-in-out;
   -webkit-transition: background-color .2s linear, width .2s ease-in-out;
+  transition: background-color .2s linear, width .2s ease-in-out;
   width: 6px;
   /* there must be 'right' for ps__thumb-y */
   right: 2px;
@@ -19790,7 +19793,7 @@ Copyright (c) 2015 Daniel Eden
 
 .white-content .card:not(.card-white) {
   background: #ffffff;
-  box-shadow: 0 1px 15px 0 rgba(, , , 0.05);
+  box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.05);
 }
 
 .white-content .card:not(.card-white) .card-header {

@@ -1,8 +1,7 @@
 venv/
 
-
+# Byte-compiled / optimized / DLL files
+__pycache__/
 *.pyc
-
-
-config/__pycache__/settings.cpython-39.pyc
-config/__pycache__/urls.cpython-39.pyc
+*.pyo
+*.pyd
