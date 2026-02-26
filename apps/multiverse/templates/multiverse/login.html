@@ -6,9 +6,11 @@
             <form class="form" method="post" action="{% url 'login' %}">
                 {% csrf_token %}
                 <div class="card card-login card-white">
-                    <div class="card-header">
-                        <img src="/static/assets/img/card-primary.png" alt="">
-                        <h1 class="card-title">Phyrexian Arena</h1>
+                    <div class="card-header text-center">
+                        <div class="d-flex flex-column align-items-center">
+                            {% include 'includes/logo.html' %}
+                            <h1 class="card-title mt-2">Phyrexian Arena</h1>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="input-group">
