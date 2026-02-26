@@ -1,0 +1,39 @@
+<li class="{% if 'dashboard' in segment %} active {% endif %}">
+    <a href="{% url 'multiverse:dashboard' %}">
+        <i class="tim-icons icon-chart-pie-36"></i>
+        <p>Dashboard</p>
+    </a>
+</li>
+
+<li class="{% if 'profile' in segment %} active {% endif %}">
+    <a href="{% url 'multiverse:profile_self' %}">
+        <i class="tim-icons icon-single-02"></i>
+        <p>Profile</p>
+    </a>
+</li>
+
+<li class="nav-label">COMMANDER HUB</li>
+
+<li class="{% if 'decks' in segment %} active {% endif %}">
+    <a href="#"> <i class="tim-icons icon-molecule-40"></i>
+        <p>My Decks</p>
+    </a>
+</li>
+
+<li class="{% if 'collection' in segment %} active {% endif %}">
+    <a href="#"> <i class="tim-icons icon-book-bookmark"></i>
+        <p>Collection</p>
+    </a>
+</li>
+
+<hr class="my-4">
+
+<li>
+    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link nav-link" style="color: rgba(255, 255, 255, 0.8); text-transform: none;">
+            <i class="tim-icons icon-button-power"></i>
+            <p>Logout</p>
+        </button>
+    </form>
+</li>
