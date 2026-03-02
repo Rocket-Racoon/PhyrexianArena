@@ -19,6 +19,7 @@ class UserAdmin(BaseUserAdmin):
     get_rank.short_description = 'Rank'
 
 
+
 # Registry
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)

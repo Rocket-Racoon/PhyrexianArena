@@ -1,39 +1,53 @@
-<li class="{% if 'dashboard' in segment %} active {% endif %}">
-    <a href="{% url 'multiverse:dashboard' %}">
-        <i class="tim-icons icon-chart-pie-36"></i>
-        <p>Dashboard</p>
+<div>
+    <br>
+<li class="nav-item{% if 'profile' in segment %} active {% endif %}">
+    <a href="{% url 'multiverse:profile_self' %}" class="nav-link">
+        <i class="fa-solid fa-user color-w"></i>
+        <span class="text-multiverse">Profile</span>
     </a>
 </li>
 
-<li class="{% if 'profile' in segment %} active {% endif %}">
-    <a href="{% url 'multiverse:profile_self' %}">
-        <i class="tim-icons icon-single-02"></i>
-        <p>Profile</p>
-    </a>
-</li>
-
-<li class="nav-label">COMMANDER HUB</li>
-
-<li class="{% if 'decks' in segment %} active {% endif %}">
-    <a href="#"> <i class="tim-icons icon-molecule-40"></i>
-        <p>My Decks</p>
-    </a>
-</li>
-
-<li class="{% if 'collection' in segment %} active {% endif %}">
-    <a href="#"> <i class="tim-icons icon-book-bookmark"></i>
-        <p>Collection</p>
+<li class="nav-item{% if 'dashboard' in segment %} active {% endif %}">
+    <a href="{% url 'multiverse:dashboard' %}" class="nav-link">
+        <i class="fa-solid fa-bars-progress color-w"></i>
+        <span class="text-multiverse">Statistics</span>
     </a>
 </li>
 
 <hr class="my-4">
 
-<li>
-    <form action="{% url 'logout' %}" method="post" style="display:inline;">
+<li class="nav-label">COMMANDER HUB</li>
+
+<li class="nav-item{% if 'decks' in segment %} active {% endif %}">
+    <a href="#" class="nav-link"> 
+        <i class="fa-solid fa-bookmark color-w"></i>
+        <span class="text-multiverse">My Decks</span>
+    </a>
+</li>
+
+<li class="nav-item{% if 'collection' in segment %} active {% endif %}">
+    <a href="#" class="nav-link"> 
+        <i class="fa-solid fa-archive color-w"></i>
+        <span class="text-multiverse">Collection</span>
+    </a>
+</li>
+
+<li class="nav-item{% if 'collection' in segment %} active {% endif %}">
+    <a href="#" class="nav-link"> 
+        <i class="fa-solid fa-arrow-right-arrow-left color-w"></i>
+        <span class="text-multiverse">Trades</span>
+    </a>
+</li>
+
+<hr class="my-4">
+
+<li class="nav-item">
+    <form action="{% url 'logout' %}" method="post" style="display:block; width: 100%;" id="logout-form">
         {% csrf_token %}
-        <button type="submit" class="btn btn-link nav-link" style="color: rgba(255, 255, 255, 0.8); text-transform: none;">
-            <i class="tim-icons icon-button-power"></i>
-            <p>Logout</p>
-        </button>
+        <a href="javascript:void(0)" onclick="document.getElementById('logout-form').submit();" class="nav-link logout-trigger">
+            <i class="fa-solid fa-power-off color-w"></i>
+            <span class="text-multiverse">Logout</span>
+        </a>
     </form>
 </li>
+</div>

@@ -1,0 +1,165 @@
+<style>
+    /* 1. Layout Base y Panel Principal */
+    .content {
+        padding-left: 250px !important;
+        transition: all 0.3s ease;
+    }
+
+    .container-fluid {
+        max-width: 100% !important;
+        width: 95% !important;
+    }
+
+    .sidebar-mini .main-panel {
+        width: calc(100% - 80px) !important;
+    }
+
+    /* 2. Estética del Sidebar */
+    .sidebar {
+        background: linear-gradient(0deg, #1a1a1a 0%, #343a40 100%) !important;
+        box-shadow: 0 10px 30px 0 rgba(0,0,0,0.5) !important;
+    }
+
+    .sidebar .nav {
+        display: block !important;
+        padding: 0 !important;
+    }
+
+    /* 3. Definición de la "Caja" de Navegación (LI + A) */
+    .sidebar .nav li.nav-item {
+        margin: 5px 15px !important;
+        padding: 0 !important;
+        list-style: none;
+        position: relative;
+    }
+
+    .sidebar .nav li.nav-item > a.nav-link,
+    .sidebar .nav li.nav-item form a.nav-link {
+        display: flex !important;
+        align-items: center !important;
+        width: 100% !important;
+        height: 50px !important;
+        padding: 10px 15px !important;
+        margin: 0 !important;
+        border-radius: 8px !important;
+        background-color: transparent !important;
+        color: #adb5bd !important; /* Color text-multiverse base */
+        transition: all 0.25s ease-in-out !important;
+        border: 1px solid transparent;
+    }
+
+    /* 4. EFECTO HOVER UNIFICADO (Para todos los li) */
+    .sidebar .nav li.nav-item > a.nav-link:hover {
+        background: rgba(255, 255, 255, 0.05) !important;
+        transform: translateX(5px) !important;
+        color: #ffffff !important;
+        box-shadow: inset 4px 0 0 0 #ff0000 !important;
+    }
+
+    .sidebar .nav li.nav-item > a.nav-link:hover i {
+        color: #ff0000 !important;
+    }
+
+    .sidebar .nav li.nav-item.active > a.nav-link {
+        background: rgba(255, 0, 0, 0.1) !important;
+        border: 1px solid rgba(255, 0, 0, 0.3) !important;
+        color: #ffffff !important;
+    }
+
+    .sidebar .nav li.nav-item.active > a.nav-link i {
+        color: #ff0000 !important;
+    }
+
+    /* 6. Tipografía y Textos */
+    .color-w {
+        color: #adb5bd !important;
+    }
+
+    .nav-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 13px !important;
+        font-weight: 400;
+        margin-left: 10px;
+    }
+
+    .nav-label {
+        margin: 25px 15px 10px 25px !important;
+        font-size: 11px;
+        font-weight: 800;
+        color: rgba(255, 255, 255, 0.3);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    /* 7. Clases de Utilidad (Text-Multiverse) */
+    .text-multiverse {
+        color: #adb5bd !important;
+        font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
+    }
+
+    h1.text-multiverse, h2.text-multiverse {
+        color: #ced4da !important;
+        font-weight: 600;
+    }
+
+    /* 8. Ajustes de Iconos Globales en Sidebar */
+    .sidebar .nav li.nav-item i {
+        font-size: 18px !important;
+        width: 30px;
+        text-align: center;
+        color: inherit; 
+    }
+
+    .data-display {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 12px 15px;
+        color: #ff0000 !important;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        min-height: 45px;
+        display: flex;
+        align-items: center;
+    }
+    .data-label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 5px;
+        display: block;
+    }
+    .bio-container {
+        background: rgba(0, 0, 0, 0.2);
+        border-left: 3px solid #ff0000;
+        padding: 20px;
+        font-style: italic;
+        color: #adb5bd;
+        line-height: 1.8;
+    }
+    .rank-badge {
+        background: linear-gradient(90deg, #f74c4c 0%, #535353 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-size: 1.2rem;
+    }
+    .stats-card {
+        border-radius: 12px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .stats-card:hover {
+        transform: translateY(-5px);
+    }
+    .profile-row {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    .btn.btn-icon{
+        font-size: 1.58rem !important;
+    }
+</style>

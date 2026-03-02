@@ -1,0 +1,167 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %} Profile - {{ user_profile.user.username }} {% endblock title %}
+
+{% block content %}
+<div class="content">
+  <div class="row profile-row">
+    <div class="col-md-9">
+      <div class="card shadow-lg">
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <div>
+              <h5 class="title mb-0">Phyrexian Multiverse Identification</h5>
+              <small>Player since: </small>
+              <small class="text-muted">
+                {% if user_profile.player_since %}
+                    {{ user_profile.player_since|date:"F Y" }}
+                {% else %}
+                    Unknown Era
+                {% endif %}
+              </small>
+          </div>
+          <a href="{% url 'multiverse:profile_edit' %}" class="btn btn-sm btn-primary btn-simple">
+            <i class="tim-icons icon-pencil"></i> Edit
+          </a>
+        </div>
+        <div class="card-body">
+            <div class="row mb-4">
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Rank</span>
+                      <div class="rank-badge">
+                        {{ user_profile.get_rank_display|upper }}
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Location</span>
+                      <div class="mb-1 text-white">
+                      <i class="tim-icons icon-world mr-2"></i>
+                        {{ user_profile.location|default:'Beyond the Blind Eternities' }}
+                      </div>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Arsenal</span>
+                      <a href="#">
+                        <h4 class="mb-0 text-white">
+                          # <small class="text-muted">Decks</small>
+                        </h4>
+                      </a> 
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Collection</span>
+                      <div class="mb-1 text-white">
+                        <a href="#"># Cards</a>
+                      </div> 
+                  </div>
+              </div>
+            </div>
+
+            <div class="row mb-4">
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Favored Colors</span>
+                      <a href="#">
+                        <h4 class="mb-0 text-white">
+                          {SYMBOLS} <small class="text-muted">{ IDENTITY }</small>
+                        </h4>
+                      </a> 
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Best Deck</span>
+                      <a href="#">
+                        <h4 class="mb-0 text-white">
+                          { Deck } <small class="text-muted"> {SYMBOLS} </small>
+                        </h4>
+                      </a> 
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Battle Logs</span>
+                      <h4 class="mb-0 text-white">{{ user_profile.total_matches }} <small class="text-muted">Matches</small></h4>
+                  </div>
+              </div>
+              <div class="col-md-3">
+                  <div class="stats-card p-3 bg-darker">
+                      <span class="data-label">Efficiency Rate</span>
+                      <h4 class="mb-0 text-success">{{ user_profile.winrate }}% <small class="text-muted">Winrate</small></h4>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="card-footer border-top border-dark">
+            <div class="d-flex justify-content-between">
+                <span class="text-multiverse small">Neural Storage Limit: <b class="text-success"># Decks</b></span>
+                <span class="text-muted small">Status: <span class="text-success">Active</span></span>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card card-user">
+        <div class="card-body">
+          <div class="author">
+            <div class="block block-one"></div>
+            <div class="block block-two"></div>
+            <div class="block block-three"></div>
+            <div class="block block-four"></div>
+            <a href="javascript:void(0)">
+              {% if user_profile.avatar_url %}
+                <img class="avatar border-primary" src="{{ user_profile.avatar_url }}" alt="Avatar">
+              {% else %}
+                <img class="avatar" src="{% static 'assets/img/default-avatar.png' %}" alt="Default Avatar">
+              {% endif %}
+              <h5 class="title">{{ user_profile.user.username|upper }}</h5>
+            </a>
+          </div>
+          <hr class="border-secondary">
+          <div class="card-description text-center mt-3">
+            <span class="data-label">Neural Log</span>
+            <div class="bio-container">
+                {% if user_profile.bio %}
+                  {{ user_profile.bio|linebreaks }}
+                {% else %}
+                  "This spark remains uncatalogued. No neural history found in the archives."
+                {% endif %}
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="button-container">
+            {% if user_profile.twitch %}
+              <a href="https://twitch.tv/{{ user_profile.twitch }}" class="btn btn-icon btn-round">
+                <i class="fa-brands fa-twitch"></i>
+              </a>
+            {% endif %}
+            {% if user_profile.instagram %}
+              <a href="https://instagram.com/{{ user_profile.instagram }}" class="btn btn-icon btn-round">
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+            {% endif %}
+            {% if user_profile.tiktok %}
+              <a href="{{ user_profile.tiktok }}" class="btn btn-icon btn-round">
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            {% endif %}
+            {% if user_profile.facebook %}
+              <a href="{{ user_profile.facebook }}" class="btn btn-icon btn-round">
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

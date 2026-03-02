@@ -34,7 +34,7 @@ class ProfileDetailView(LoginRequiredMixin, DetailView):
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = Profile
-    template_name = 'multiverse/profile_update.html'
+    template_name = 'multiverse/profile_edit.html'
     fields = [
         'bio', 'location', 'avatar_url', 
         'twitch', 'instagram', 'tiktok', 'facebook'

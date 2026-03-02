@@ -1,0 +1,114 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %} Update Profile {% endblock title %}
+
+{% block content %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title text-multiverse">Edit Your Phyrexian Spark</h5>
+        </div>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="card-body">
+            
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label class="text-multiverse">Avatar URL</label>
+                  <input type="url" name="avatar_url" class="form-control" 
+                         value="{{ form.avatar_url.value|default:'' }}" placeholder="https://image.com/my-avatar.png">
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label class="text-multiverse">Location</label>
+                  <input type="text" name="location" class="form-control" 
+                         value="{{ form.location.value|default:'' }}" placeholder="New Capenna, Ravnica...">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="text-multiverse">Biography</label>
+                  <textarea name="bio" rows="4" class="form-control" 
+                            placeholder="Tell the multiverse your story...">{{ form.bio.value|default:'' }}</textarea>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4 border-secondary">
+            <h6 class="text-muted mb-3">Social Networks</h6>
+
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label class="text-multiverse"><i class="fa-brands fa-twitch mr-2"></i>Twitch Username</label>
+                  <input type="text" name="twitch" class="form-control" 
+                         value="{{ form.twitch.value|default:'' }}" placeholder="User without @">
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label class="text-multiverse"><i class="fa-brands fa-instagram mr-2"></i>Instagram Username</label>
+                  <input type="text" name="instagram" class="form-control" 
+                         value="{{ form.instagram.value|default:'' }}" placeholder="User without @">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6 pr-md-1">
+                <div class="form-group">
+                  <label class="text-multiverse"><i class="fa-brands fa-tiktok mr-2"></i>TikTok URL</label>
+                  <input type="url" name="tiktok" class="form-control" 
+                         value="{{ form.tiktok.value|default:'' }}" placeholder="https://tiktok.com/@user">
+                </div>
+              </div>
+              <div class="col-md-6 pl-md-1">
+                <div class="form-group">
+                  <label class="text-multiverse"><i class="fa-brands fa-facebook mr-2"></i>Facebook URL</label>
+                  <input type="url" name="facebook" class="form-control" 
+                         value="{{ form.facebook.value|default:'' }}" placeholder="https://facebook.com/user">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <button type="submit" class="btn btn-fill btn-primary">Save Changes</button>
+            <a href="{% url 'multiverse:profile_self' %}" class="btn btn-fill btn-default">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card card-user">
+        <div class="card-body">
+          <div class="author">
+            <div class="block block-one"></div>
+            <div class="block block-two"></div>
+            <a href="javascript:void(0)">
+              <img class="avatar" src="{{ user.profile.avatar_url|default:'' }}" alt="Avatar Preview">
+              <h5 class="title">{{ user.username }}</h5>
+            </a>
+            <p class="description text-primary">
+              {{ user.profile.get_rank_display }}
+            </p>
+          </div>
+          <div class="card-description text-center text-multiverse">
+            Recuerda que tu rango actual es <b>{{ user.profile.rank }}</b>.
+            Sigue ganando duelos para ascender en la jerarquía.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

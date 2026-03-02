@@ -23,6 +23,7 @@ class Profile(models.Model):
         blank=True,
         verbose_name="Biography"
     )
+    player_since = models.DateField(blank=True, null=True)
     avatar_url = models.URLField(blank=True, null=True)
     location = models.CharField(max_length=100, blank=True)
     
