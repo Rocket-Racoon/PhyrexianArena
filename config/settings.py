@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # Local Apps
     'apps.multiverse',
+    'apps.blind_eternities',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,7 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Services URLs
+SCRYFALL_API_URL = "https://api.scryfall.com"
+SCRYFALL_RATE_LIMIT_DELAY = 0.1
