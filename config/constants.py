@@ -669,4 +669,23 @@ class SetTypes(models.TextChoices):
     SCENE       = "scene_box", "Scene Box"
     MINIGAME    = "minigame", "Minigame"
     HEROES      = "heroes_of_the_realm", "Heroes of the Realm"
-    FRONTCARDS  = "front_cards", "Jumpstart Front Cards"   
+    FRONTCARDS  = "front_cards", "Jumpstart Front Cards" 
+    
+    
+class RelationTypes(models.TextChoices):
+    CARD_COMBO      = "combo_piece", "Combo Piece",
+    CARD_SPLIT      = "split", "Split",
+    CARD_FLIP       = "flip", "Flip",
+    CARD_TRANSFORM  = "transform", "Transform",
+    CARD_MODALDFC   = "modal_dfc", "Modal DFC",
+    CARD_ADVENTURE  = "adventure", "Adventure",
+    CARD_MELD_PART  = "meld_part", "Meld Part",
+    CARD_MELD_RES   = "meld_result", "Meld Result",
+    CARD_PROTOTYPE  = "prototype", "Prototype",
+    TOKEN           = "token", "Token",
+    EMBLEM          = "emblem", "Emblem",
+    MONARCH         = "monarch", "The Monarch",
+    DUNGEON         = "dungeon", "Dungeon",
+    INITIATIVE      = "initiative", "Take the Initiative"
+    
+    
