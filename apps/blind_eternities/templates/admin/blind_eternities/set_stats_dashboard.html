@@ -1,0 +1,109 @@
+{% load humanize %}
+<style>
+    .dashboard-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        background: var(--darkened-bg, #f8f9fa);
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid var(--border-color, #dee2e6);
+        color: var(--body-fg, #333);
+    }
+    .stat-card { text-align: center; }
+    .stat-value { font-size: 24px; font-weight: bold; display: block; }
+    
+    .mana-scroll-container {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .mana-bar-container {
+        display: flex;
+        align-items: flex-end; /* Alinea las barras al fondo */
+        height: 150px; /* Altura fija necesaria para que los % funcionen */
+        min-width: 100%; /* Corregido de 100 a 100% */
+        gap: 6px;
+        border-bottom: 2px solid #ccc;
+        padding-bottom: 5px;
+    }
+
+    .mana-bar-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end; /* Empuja la barra hacia abajo */
+        align-items: center;
+        min-width: 30px;
+        height: 100%; /* Importante para que el cálculo de altura funcione */
+        flex: 1;
+    }
+
+    .mana-bar {
+        background: #007bff;
+        width: 85%;
+        display: block; /* Asegura comportamiento de bloque */
+        min-height: 2px; /* Evita que barras de 0.1% desaparezcan */
+        transition: background 0.3s;
+        border-radius: 2px 2px 0 0;
+    }
+
+    .mana-bar:hover {
+        background: #0056b3;
+    }
+
+    .mana-label {
+        font-size: 11px;
+        font-family: monospace;
+        margin-top: 5px;
+        font-weight: bold;
+        color: #444;
+    }
+    .color-list { list-style: none; padding: 0; }
+    .color-item { margin-bottom: 5px; font-weight: 500; }
+</style>
+
+<div class="dashboard-container">
+    <div class="dashboard-section" style="grid-column: span 2;">
+        <h3>📊 Curva de Maná (Mana Value)</h3>
+        <div class="mana-scroll-container">
+            <div class="mana-bar-container">
+                {% for item in mana_curve %}
+                    <div class="mana-bar-wrapper">
+                        {# Forzamos que el porcentaje sea interpretado correctamente con floatformat #}
+                        <div class="mana-bar" 
+                             title="CMC {{ item.label }}: {{ item.total }} cartas" 
+                             style="height: {{ item.percentage|floatformat:2 }}%;">
+                        </div>
+                        <div class="mana-label">{{ item.label }}</div>
+                    </div>
+                {% empty %}
+                    <p style="padding: 20px;">No hay datos de maná disponibles para este set.</p>
+                {% endfor %}
+            </div>
+            <p><small>Distribución real por coste de maná convertido del set completo.</small></p>
+        </div>
+    </div>
+
+    <div class="dashboard-section">
+        <h3>🎨 Identidad de Color</h3>
+        <ul class="color-list">
+            <li class="color-item" style="color: #b9930a;"> ⚪ White: {{ color_counts.W }}</li>
+            <li class="color-item" style="color: #0d6efd;"> 🔵 Blue: {{ color_counts.U }}</li>
+            <li class="color-item" style="color: #510055ff;"> ⚫ Black: {{ color_counts.B }}</li>
+            <li class="color-item" style="color: #dc3545;"> 🔴 Red: {{ color_counts.R }}</li>
+            <li class="color-item" style="color: #198754;"> 🟢 Green: {{ color_counts.G }}</li>
+        </ul>
+    </div>
+
+    <div style="grid-column: span 2; display: flex; justify-content: space-around; padding-top: 15px; border-top: 1px dashed #bbb;">
+        <div class="stat-card">
+            <span class="stat-value">{{ commander_count }}</span>
+            <span>Comandantes</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value" style="color: #28a745;">${{ total_value|floatformat:2|intcomma }}</span>
+            <span>Valor del Set (USD)</span>
+        </div>
+    </div>
+</div>

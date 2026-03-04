@@ -13,4 +13,4 @@ class Command(BaseCommand):
             else:
                 self.stdout.write(self.style.WARNING('ℹ️ No new sets.'))
         except Exception as e:
-            self.stdout.write(self.style.ERROR(f'❌ Sync Error: {str(e)}'))
+            self.stdout.write(self.style.ERROR(f'❌ Sync Error: {str(e)} : {str(e.with_traceback)}'))

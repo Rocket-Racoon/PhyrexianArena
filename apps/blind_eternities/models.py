@@ -3,6 +3,7 @@ from django.db import models
 from config.constants import *
 
 
+# -- TYPES
 class CreatureType(models.Model):
     """
     Catálogo dinámico de tipos de criatura.
@@ -16,7 +17,7 @@ class CreatureType(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 # -- SETS --    
 class Set(models.Model):
@@ -25,7 +26,7 @@ class Set(models.Model):
     # -- CODES --
     code = models.CharField(
         max_length=10, 
-        unique=True,
+        unique=False,
         db_index=True,
         help_text="Set Code"
     )
@@ -106,7 +107,6 @@ class Card(models.Model):
         help_text="Maximum number of copies allowed in a deck by card rules"
     )
     banned_as_companion = models.BooleanField(default=False)
-    banned_as_commander = models.BooleanField(default=False)
     
     # -- DATA --
     name = models.CharField(max_length=255, null=True, blank=True)
@@ -262,8 +262,8 @@ class Card(models.Model):
         
         costs = [face.mana_cost for face in self.faces.all() if face.mana_cost]
         return " // ".join(costs)
-    
-    
+
+
 class CardFace(models.Model):
     # --- CARD IDS ---
     card = models.ForeignKey(
@@ -327,8 +327,8 @@ class CardFace(models.Model):
     def full_type(self):
         prefix = ' '.join(self.supertype + self.cardtype)
         return f"{prefix} — {' '.join(self.subtype)}" if self.subtype else prefix
-    
-    
+
+ 
 class RelatedCard(models.Model):
     parent = models.ForeignKey(
         Card,
@@ -382,3 +382,28 @@ class RelatedCard(models.Model):
                 name="unique_related_card_per_parent"
             )
         ]
+
+
+# -- RULINGS --
+class Ruling(models.Model):
+    oracle_id = models.UUIDField(db_index=True, null=True, blank=True)
+    # Relacionamos con Card usando el oracle_id como nexo lógico
+    card = models.ForeignKey(
+        Card, 
+        on_delete=models.CASCADE, 
+        related_name='rulings'
+    )
+    source = models.CharField(max_length=20) 
+    published_at = models.DateField()
+    comment = models.TextField()
+
+    class Meta:
+        verbose_name = "Ruling"
+        verbose_name_plural = "Rulings"
+        unique_together = ('oracle_id', 'published_at', 'comment')
+
+    def __str__(self):
+        return f"Ruling for {self.card.name} ({self.published_at})"
+    
+    
+    
