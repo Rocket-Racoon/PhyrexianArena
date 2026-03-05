@@ -1,11 +1,46 @@
 {% extends "layouts/base.html" %}
 {% block content %}
-<div class="content" >
+<div class="content">
     <div class="container container-fluid">
-        <div>BUSCADOR DE CARTAS</div>
-        <hr class='alert-white'>
-        <div>LISTADO DE SETS</div>
-        <div>CARDS DE SETS</div>
+        <ul class="nav nav-pills border-secondary mb-4" id="main-tabs">
+            <li class="nav-item">
+                <a class="nav-link active text-white border border-secondary me-2" href="#" data-target="#tab-search">
+                    <i class="fas fa-search me-2"></i> Search
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white border border-secondary" href="#" data-target="#tab-combos">
+                    <i class="fas fa-magic me-2"></i> Combos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white border border-secondary me-2" href="#" data-target="#tab-sets">
+                    <i class="fas fa-layer-group me-2"></i> Sets
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white border border-secondary" href="#" data-target="#tab-combos">
+                    <i class="fas fa-magic me-2"></i> Decklists
+                </a>
+            </li>
+        </ul>
+
+        <hr class="alert-white">
+
+        <div id="tab-content-container">
+            <div id="tab-search" class="tab-pane-custom">
+                {% include 'multiverse/partials/search.html' %}
+            </div>
+            <div id="tab-combos" class="tab-pane-custom" style="display: none;">
+                <div class="text-white">Aquí aparecerá la sección de combos próximamente...</div>
+            </div>
+            <div id="tab-sets" class="tab-pane-custom" style="display: none;">
+                <div class="text-white">Aquí aparecerá el listado de sets próximamente...</div>
+            </div>
+            <div id="tab-combos" class="tab-pane-custom" style="display: none;">
+                <div class="text-white">Aquí aparecerá la sección de combos próximamente...</div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

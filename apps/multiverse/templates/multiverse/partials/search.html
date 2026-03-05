@@ -1,0 +1,66 @@
+<div class="card-search-container">
+    <form action="" method="GET" class="mb-5">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-4"> 
+            <div class="search-group-container">
+                <input type="text" name="q" class="custom-input form-control text-white" 
+                       placeholder="Search Card ..." value="{{ query }}">
+                <button class="custom-search-btn" type="submit">
+                    SEARCH
+                </button>
+            </div>
+            <div class="d-flex gap-4">
+                <div class="custom-phyrexian-switch">
+                    <input type="checkbox" name="special_cards" id="checkSpecial" {% if special_cards %}checked{% endif %}>
+                    <label for="checkSpecial">Specials</label>
+                </div>
+                <div class="custom-phyrexian-switch">
+                    <input type="checkbox" name="digital_version" id="checkDigital" {% if digital_version %}checked{% endif %}>
+                    <label for="checkDigital">Digital</label>
+                </div>
+                <div class="custom-phyrexian-switch">
+                    <input type="checkbox" name="latest_version" id="checkLatest" {% if latest_version %}checked{% endif %}>
+                    <label for="checkLatest">Latest</label>
+                </div>
+                <div class="custom-phyrexian-switch">
+                    <input type="checkbox" name="random_card" id="checkRandom" {% if random_card %}checked{% endif %}>
+                    <label for="checkRandom">Random</label>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div class="mtg-grid">
+        {% for card in results %}
+            <div class="mtg-card-frame">
+                {% if card.is_double_faced and card.layout != 'split' %}
+                <button class="flip-btn-mini" onclick="event.preventDefault(); event.stopPropagation(); toggleFlip('{{ card.id }}')">
+                    <img src="https://svgs.scryfall.io/card-symbols/T.svg" id="icon-{{ card.id }}" style="width: 18px;">
+                </button>
+                {% endif %}
+                <div class="mtg-card-img card-flip-inner" id="card-inner-{{ card.id }}">
+                    <div class="card-face face-front">
+                        <a href="#">
+                            <img src="{% if card.is_double_faced and card.layout != 'split' %}{{ card.faces.all.0.image_uris.normal }}{% else %}{{ card.get_image_url }}{% endif %}" 
+                                 class="mtg-card-img" alt="{{ card.name }}">
+                        </a>
+                    </div>
+                    {% if card.is_double_faced %}
+                    <div class="card-face face-back">
+                        <a href="#">
+                            <img src="{{ card.faces.all.1.image_uris.normal }}" 
+                                 class="mtg-card-img" alt="{{ card.name }} back">
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="mtg-card-info d-flex align-items-center justify-content-center pt-2 gap-2">
+                    {% if card.set.icon_svg_uri %}
+                        <img src="{{ card.set.icon_svg_uri }}" style="width:16px; height:16px; filter: invert(1);">
+                    {% endif %}
+                    <span style="color: #888; font-size: 0.75rem; font-weight: bold;">{{ card.set.code|upper }}</span>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>

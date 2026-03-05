@@ -69,6 +69,8 @@ class Set(models.Model):
     # -- IMGs --
     icon_svg_uri = models.URLField(max_length=500, blank=True, null=True)
 
+    def __str__(self):
+        return f"{self.name} ({self.code})"
 
 # -- CARDS --
 class Card(models.Model):

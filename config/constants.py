@@ -670,6 +670,8 @@ class SetTypes(models.TextChoices):
     MINIGAME    = "minigame", "Minigame"
     HEROES      = "heroes_of_the_realm", "Heroes of the Realm"
     FRONTCARDS  = "front_cards", "Jumpstart Front Cards" 
+    PLANAR      = "planar_deck", "Planar Deck"
+    SCHEMES     = "schemes_deck", "Scheme Deck"
     
     
 class RelationTypes(models.TextChoices):

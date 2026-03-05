@@ -1,9 +1,12 @@
 from django.contrib import admin
 from django.db.models import Count
 from django.template.loader import render_to_string
+from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from .models import Set, Card
+from .models import Set, Card, CardFace, RelatedCard, Ruling
 
+
+# -- SET --
 
 @admin.action(description='Set Commander Status: True')
 def mark_commanders(modeladmin, request, queryset):
@@ -69,3 +72,106 @@ class SetAdmin(admin.ModelAdmin):
         return mark_safe(html)
 
     set_stats_dashboard.short_description = "Estadísticas del Set"
+
+# -- CARD --
+@admin.action(description="Ban Selected Card(s)")
+def make_banned(modeladmin, request, queryset):
+    queryset.update(is_banned=True)
+
+@admin.action(description="Un-Ban Selected Card(s)")
+def remove_banned(modeladmin, request, queryset):
+    queryset.update(is_banned=False)
+
+@admin.action(description="Mark as Restricted Selected Card(s)")
+def make_restricted(modeladmin, request, queryset):
+    queryset.update(is_restricted=True)
+
+@admin.action(description="Unmark as Restricted Selected Card(s)")
+def remove_restricted(modeladmin, request, queryset):
+    queryset.update(is_restricted=False)
+
+@admin.action(description="Mark as GC Selected Card(s)")
+def make_gamechanger(modeladmin, request, queryset):
+    queryset.update(game_changer=True)
+
+@admin.action(description="Unmark as GC Selected Card(s)")
+def remove_gamechanger(modeladmin, request, queryset):
+    queryset.update(game_changer=False)
+
+
+@admin.register(Card)
+class CardAdmin(admin.ModelAdmin):
+    list_display = ('collector_number','name', 'get_set_name', 'mana_cost', 'colors', 'type_line', 
+                    'rarity', 'created_at', 'updated_at', 'game_changer', 'is_banned', 
+                    'is_restricted') 
+    actions = [make_banned, remove_banned, make_gamechanger, remove_gamechanger, 
+               make_restricted, remove_restricted]
+
+    list_filter = ('set', 'rarity', 'promo', 'reprint', 'game_changer', 
+                   'is_banned', 'is_restricted')
+    
+    search_fields = ('name', 'type_line', 'oracle_id', 'keywords', 'set_name')
+    fieldsets = (
+        ('Información Básica', {
+            'fields': ('name', 'set', 'mana_cost', 'type_line', 'rarity')
+        }),
+        ('Atributos de Juego', {
+            'fields': ('cmc', 'colors', 'color_identity', 'keywords', 'oracle_id', 'oracle_text', 'flavor_text')
+        }),
+        ('Estado y Colección', {
+            'fields': ('is_banned', 'game_changer', 'can_be_commander', 'promo', 'reprint')
+        }),
+        ('Metadata de Scryfall (JSON)', {
+            'classes': ('collapse',), 
+            'fields': ('image_uris', 'prices', 'legalities', 'purchase_uris', 'related_uris')
+        }),
+    )
+    list_select_related = ('set',)
+    
+    def get_set_name(self, obj):
+        silver_filter = "filter: grayscale(1) brightness(1.2) contrast(1.1);"
+        if obj.set and obj.set.icon_svg_uri:
+            return format_html(
+                '<img src="{}" style="width:20px; height:20px; margin-right:8px; vertical-align:middle; {}"> {}',
+                obj.set.icon_svg_uri,
+                silver_filter,
+                obj.set.code
+            )
+        return obj.set.name if obj.set else "-"
+
+    get_set_name.short_description = 'Set'
+    
+
+@admin.register(CardFace)
+class CardFaceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'mana_cost', 'type_line', 'color_identity', 'layout')
+    search_fields = ('name', 'type_line')
+
+
+class CardFaceInline(admin.StackedInline):
+    model = CardFace
+    extra = 0
+    readonly_fields = ('full_type_line',)
+    fieldsets = (
+        (None, {
+            'fields': (('name', 'mana_cost', 'cmc'),)
+        }),
+        ('Card Attributes', {
+            'fields': (('power', 'toughness', 'loyalty', 'defense'),)
+        }),
+        ('Typal', {
+            'fields': ('supertypes', 'card_types', 'subtypes', 'full_type_line')
+        }),
+        ('Content', {
+            'fields': ('oracle_text', 'image_uri')
+        }),
+    )
+
+
+@admin.register(RelatedCard)
+class RelatedCardAdmin(admin.ModelAdmin):
+    list_display = ('name','type_line')
+    
+@admin.register(Ruling)
+class RulingAdmin(admin.ModelAdmin):
+    list_display = ('card','published_at', 'source')
