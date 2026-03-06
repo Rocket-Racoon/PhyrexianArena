@@ -243,7 +243,7 @@
 }
 
 .mtg-card-frame {
-    width: 100%;
+    width: 92%;
     display: flex;
     flex-direction: column;
 }
@@ -252,9 +252,30 @@
     width: 100%;
     aspect-ratio: 2.5 / 3.5;
     object-fit: fill; 
-    border-radius: 4.75%;
+    border-radius: 4.75% / 3.5%; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     display: block;
+    background-color: #1a1a1a;
 }
+.mtg-card-img:hover {
+    transform: scale(1.10);
+    box-shadow: 0 0 15px rgba(255, 0, 25, 0.5);
+    cursor: pointer;
+}   
+
+.card-flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s ease;
+        transform-style: preserve-3d;
+    }
+
+    .card-flip-inner.is-flipped {
+        transform: rotateY(180deg);
+    }
+
+
 
 
     /* 7. Clases de Utilidad (Text-Multiverse) */
